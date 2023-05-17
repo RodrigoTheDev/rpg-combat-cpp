@@ -12,12 +12,14 @@ class Monster {
     public:
         string nome;
         int hp;
+        int exp_ammount;
         vector<Attack> attackGroup;
 
 
-        Monster(string NAME, int HP, vector<Attack> ataques) {
+        Monster(string NAME, int HP, int exp,  vector<Attack> ataques) {
             nome = NAME;
             hp = HP;
+            exp_ammount = exp;
 
             init_hp = HP;
 
@@ -34,6 +36,18 @@ class Monster {
         //retorna verdadeiro caso o hp do objeto seja menor ou igual a zero
 		bool PlayerDefeated(int hp) {
 			return (hp <= 0);
+		}
+
+        void UseAttack(int* otherHP, Attack atk) {
+
+			//printando na tela o ataque
+			cout << this->nome << " usou " << atk.at_label << " causando " << atk.dano << " de dano " << endl;
+
+
+			//atualizando os valores
+			*otherHP -= atk.dano;
+
+			//na hora de usar essa função, colocar &variável como parâmetro
 		}
 
     

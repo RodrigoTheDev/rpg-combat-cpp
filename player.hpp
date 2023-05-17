@@ -10,12 +10,12 @@ using namespace std;
 
 class Character {
 	public: //public variables
+		int exp = 0; //experiêcia do jogador
+		int lvl = 1; //nível do jogador, responsável por melhorar os atributos acima
 		int hp = 0; //health points
 		int mp = 0; //mana points
-		int mp_regen = 1; //regeneração de mana
-		int hp_regen = 1; //regeneração de vida
-		int exp = 0; //experiêcia do jogador
-		int lvl = 0; //nível do jogador, responsável por melhorar os atributos acima
+		int mp_regen = 1 + lvl; //regeneração de mana
+		int hp_regen = 1 + lvl; //regeneração de vida
 		string nome = "";
 
 		// Attack* attackGroup = new Attack[4];
